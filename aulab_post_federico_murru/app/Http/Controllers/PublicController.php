@@ -10,4 +10,8 @@ class PublicController extends Controller
     {
         return view('welcome');
     }
+    public function register()
+    {
+        return view('auth.register');
+    }
 }
