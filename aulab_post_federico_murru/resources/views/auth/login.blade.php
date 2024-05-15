@@ -1,4 +1,8 @@
-<x-layout>
+<x-layout>      
+    <div class="container-fluid p-5 bg-info text-center text-white">
+  <div class="row justify-content-center"></div>
+  <h1 class="display-1">The Aulab Post</h1>
+</div>
     <section>
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
@@ -15,32 +19,26 @@
                       <form method="POST" action="{{route('login')}}">
                         @csrf
       
-                        <div class="d-flex align-items-center mb-3 pb-1">
-                            <i class="fa-solid fa-newspaper fa-2x">
-                                <span class="m-lg-5" >
-                                  The Aulab Post
-                                </span>
-                              </i>
-                        </div>
       
                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Enter you account</h5>
       
-                        <div data-mdb-input-init class="form-outline mb-4">
-                            <input placeholder="Email..." name="email" type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div data-mdb-input-init class="form-outline mb-2">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input placeholder="Email..." name="email" type="email" class="form-control form-control-lg" id="exampleInputEmail1" value="{{old('email')}}"  aria-describedby="emailHelp">
+                     
                         </div>
 
 
       
-                        <div data-mdb-input-init class="form-outline mb-4">
+                        <div data-mdb-input-init class="form-outline mb-2">
+                            <label for="password" class="form-label">Password</label>
                             <input placeholder="Password..." name="password" type="password" class="form-control form-control-lg" id="password">
-                        <label for="password" class="form-label">Password</label>
                         
                         </div>
 
 
 
-                        <div class="pt-1 mb-4">
+                        <div class="pt-1 my-4">
                           <button data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                         </div>
       
