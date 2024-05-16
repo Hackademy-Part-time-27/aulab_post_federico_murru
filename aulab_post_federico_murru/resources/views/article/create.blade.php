@@ -1,35 +1,39 @@
 <x-layout>
 
     <div class="container-fluid p-5 bg-info text-center text-white">
-        <div class="row justify-content-center"></div>
-        <h1 class="display-1">Insert new article</h1>
+        <div class="row justify-content-center">
+            <h1 class="display-1">Insert new article</h1>
+        </div>
+
     </div>
+    
 
     <div class="mx-5 row justify-content-center">
         <div class="col-12 col-md-8">
             @if ($errors->any())
-         <div class="alert alert-danger">
+            <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
                 <li>{{$error}}</li>   
                 @endforeach
             </ul>
-         </div>
-        @endif
-        <form class="card p-5 shadow" action="{{route('article.store')}}" method="POST" enctype="multipart/form-data">    
+            </div>
+            @endif
+            <form class="card p-5 shadow" action="{{route('article.store')}}" method="POST" enctype="multipart/form-data">    
                 @csrf
                 <div class="mt-3">
                     <label for="title" class="form-label">Title:</label>
-                    <input type="text" name="title" class="form-control" id='title' value= "{{ old('title')}}">
+                    <input type="text" name="title" class="form-control" id='title' value="{{ old('title')}}">
                 </div>
                 <div class="mt-3">
                     <label for="subtitle" class="form-label">Subtitle:</label>
-                    <input type="text" name="subtitle" class="form-control" id='subtitle' value= "{{ old('subtitle')}}">
+                    <input type="text" name="subtitle" class="form-control" id='subtitle' value="{{ old('subtitle')}}">
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Image:</label>
                     <input type="file" name="image" class="form-control" id='image'>
-                {{-- </div>
+                </div>
+                {{-- 
                 <div class="mb-3">
                     <label for="tags" class="form-label">Tags:</label>
                     <input name="tags" class="form-control" id='tags' value="{{ old('tags')}}">
@@ -50,9 +54,9 @@
                     <div class="mt-2 d-flex justify-content-center ">
                         <button type="submit" class="btn btn-info text-white">Insert article</button>
                     </div>
-            </form>
-
-     </div>
+        </form>
+        </div>
+      
     </div>
 
 
