@@ -2,7 +2,7 @@
 
     <div class="container-fluid p-5 bg-info text-center text-white">
         <div class="row justify-content-center"></div>
-        <h1 class="display-1">The Aulab Post</h1>
+        <h1 class="display-1">Insert new article</h1>
     </div>
 
     <div class="mx-5 row justify-content-center">
