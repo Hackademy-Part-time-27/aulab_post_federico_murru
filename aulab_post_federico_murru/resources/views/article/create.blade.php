@@ -16,7 +16,7 @@
             </ul>
          </div>
         @endif
-        <form action="{{route('article.store')}}" method="POST" class="card p-2 mt-2 shadow" enctype="multipart/form-data">
+        <form class="card p-5 shadow" action="{{route('article.store')}}" method="post" enctype="multipart/form-data">    
                 @csrf
                 <div class="mt-3">
                     <label for="title" class="form-label">Title:</label>
@@ -29,12 +29,12 @@
                 <div class="mb-3">
                     <label for="image" class="form-label">Image:</label>
                     <input type="file" name="image" class="form-control" id='image'>
-                </div>
+                {{-- </div>
                 <div class="mb-3">
                     <label for="tags" class="form-label">Tags:</label>
                     <input name="tags" class="form-control" id='tags' value="{{ old('tags')}}">
                     <span class="small fst-italic ">Divide each tag by a comma</span>
-                </div>
+                </div> --}}
                 <div class="mb-3">
                     <label for="category" class="form-label">Category:</label>
                     <select name="category" id="category" class="form-control text-capitalize">
