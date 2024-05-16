@@ -6,11 +6,10 @@
     </div>
 
 
-@if (session('message'))
-                            <div class="alert alert-success text-center">
-                                {{ session('message') }}
-                            </div>
-                        @endif
+                @if (session('message'))
+                 <div class="alert alert-success text-center">
+                {{ session('message') }}
+                @endif
  
 
 </x-layout>
