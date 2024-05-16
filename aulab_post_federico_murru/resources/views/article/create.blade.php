@@ -16,7 +16,7 @@
             </ul>
          </div>
         @endif
-        <form class="card p-5 shadow" action="{{route('article.store')}}" method="post" enctype="multipart/form-data">    
+        <form class="card p-5 shadow" action="{{route('article.store')}}" method="POST" enctype="multipart/form-data">    
                 @csrf
                 <div class="mt-3">
                     <label for="title" class="form-label">Title:</label>
@@ -48,7 +48,7 @@
                         <textarea name="body" id="body" cols="30" rows="7" class="form-control">{{ old('body')}}</textarea>
                     </div>
                     <div class="mt-2 d-flex justify-content-center ">
-                        <button class="btn btn-info text-white">Insert article</button>
+                        <button type="submit" class="btn btn-info text-white">Insert article</button>
                     </div>
             </form>
 

@@ -11,6 +11,7 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 
 class ArticleController extends Controller implements HasMiddleware
 {
+
     public static function middleware()
     {
         return [
@@ -57,7 +58,8 @@ class ArticleController extends Controller implements HasMiddleware
             'category_id' => $request->category,
             'user_id' => Auth::user()->id,
         ]);
-        return redirect(route('homepage'))->with('message', 'Articolo creato correttamente');
+
+        return redirect(route('homepage'))->with('message', 'Article succesfully created');
     }
 
     /**
