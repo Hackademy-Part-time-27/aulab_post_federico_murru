@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ArticleController extends Controller
 {
@@ -41,7 +43,7 @@ class ArticleController extends Controller
             'subtitle' => $request->subtitle,
             'body' => $request->body,
             'image' => $request->file('image'),
-            'category' => $request->category,
+            'category_id' => $request->category,
             'user_id' => Auth::user()->id
 
         ]);

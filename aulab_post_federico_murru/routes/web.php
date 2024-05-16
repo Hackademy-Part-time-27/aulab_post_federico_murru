@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
+use Illuminate\Support\Facades\Auth;
+
+Auth::routes();
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
@@ -10,3 +13,6 @@ Route::get('/articles/create', [ArticleController::class, 'create'])->name('arti
 
 
 Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
+
+Auth::routes();
+
