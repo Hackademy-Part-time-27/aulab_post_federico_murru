@@ -1,6 +1,6 @@
 <x-layout>
 
-    <div class="container-fluid p-5 bg-info text-center text-white">
+    <div class="container-fluid p-5 bg-info text-center text-white mb-4">
         <div class="row justify-content-center">
             <h1 class="display-1">Insert new article</h1>
         </div>
@@ -8,7 +8,7 @@
     </div>
     
 
-    <div class="mx-5 row justify-content-center">
+    <div class="mx-5 row justify-content-center mb-4">
         <div class="col-12 col-md-8">
             @if ($errors->any())
             <div class="alert alert-danger">

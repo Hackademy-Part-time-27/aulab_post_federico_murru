@@ -9,6 +9,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="{{route('article.create')}}">Create article</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{route('article.index')}}">Article list</a>
+                </li>
             </ul>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="navbar-nav ms-auto mb-lg-0">
