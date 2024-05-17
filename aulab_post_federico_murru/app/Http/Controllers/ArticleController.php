@@ -31,8 +31,8 @@ class ArticleController extends Controller implements HasMiddleware
 
     public function byCategory(Category $category)
     {
-        $articles = $category->articles()->orderby('created_at', 'asc')->get();
-        return view('article.by-category', compact('category', ' articles'));
+        $articles = $category->articles()->orderBy('created_at', 'desc')->get();
+        return view('article.by-category', compact('category', 'articles'));
     }
 
     /**

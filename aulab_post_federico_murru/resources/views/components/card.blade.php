@@ -3,7 +3,8 @@
     <div class="card-body">
         <h5 class="card-title">{{ $title }}</h5>
         <p class="card-text text-truncate">{{ $subtitle }}</p>
-        <p class="small text-muted text-center">{{ $category }}</p>
+        <a href="{{ $urlCategory }}" 
+        class="small text-muted text-center">{{ $category }}</p>
     </div>
     <div class="card-footer text-muted text-center">
         <div class="mb-2">Written by {{ $user }} on {{ $date }}</div>
