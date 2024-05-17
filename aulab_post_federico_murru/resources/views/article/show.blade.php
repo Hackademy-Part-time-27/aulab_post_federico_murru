@@ -2,7 +2,7 @@
     <div class="container-fluid p-5 allArticle text-center">
         <div class="row justify-content-center">
             <div class="h1 display-1">
-                Titolo: {{ $article->title }}
+                Title: {{ $article->title }}
             </div>
         </div>
     </div>
