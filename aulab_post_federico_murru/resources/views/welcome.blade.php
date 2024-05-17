@@ -13,20 +13,26 @@
 
     <div class="container my-5">
         <div class="row justify-content-center">
-            @foreach($articles as $article)
-                <div class="col-12 col-md-5 m-3">
-                    <x-card
-                        title="{{ $article->title }}"
-                        subtitle="{{ $article->subtitle }}"
-                        image="{{ $article->image }}"
-                        category="{{ $article->category->name }}"
-                        date="{{ $article->created_at->format('d/m/y') }}"
-                        user="{{ $article->user->name }}"
-                        url="{{ route('article.show', ['article' => $article->id]) }}"
-                        urlCategory="{{ route('article.byCategory', ['category' => $article->category->id]) }}"
-                    />
+            @foreach ($articles as $article)
+            <div class="col-12 col-md-5 m-3">
+                <div class="card h-100">
+                    <img src="{{ Storage::url($article->image) }}" class="card-img-top" alt="Immagine dell'articolo: {{ $article->title }}" style="height: 200px; object-fit: cover; width: 100%;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ $article->title }}</h5>
+                        <p class="card-subtitle mb-2">{{ $article->subtitle }}</p>
+                        <p class="small text-muted">
+                            Category: <a href="{{ route('article.byCategory', $article->category) }}" class="text-capitalize text-muted">{{ $article->category->name }}</a>
+                        </p>
+                        <p class="small text-muted">
+                            Author: <a href="{{ route('article.byUser', $article->user) }}" class="text-capitalize text-muted">{{ $article->user->name }}</a>
+                        </p>
+                        <div class="mt-auto">
+                            <a href="{{ route('article.show', $article) }}" class="btn btn-outline-secondary">Read more</a>
+                        </div>
+                    </div>
                 </div>
-            @endforeach
+            </div>
+        @endforeach
         </div>
 
     </div>
