@@ -23,7 +23,7 @@
         </div>
     </div>
     <hr>
-    <p class="text-break">{{$article->body}}</p>
+    <p class="text-break p-4">{{$article->body}}</p>
     <div class="text-center">
         <a href="{{route('article.index')}}" class="btn btn-info text-white my-5">back</a>
     </div>
