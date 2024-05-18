@@ -65,4 +65,3 @@ class PublicController extends Controller implements HasMiddleware
         return redirect(route('homepage'))->with('message', 'Thank you for contacting us.');
     }
 }
-
