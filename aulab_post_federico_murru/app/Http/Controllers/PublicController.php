@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Mail\CarrerRequestMail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
 
@@ -28,7 +31,7 @@ class PublicController extends Controller implements HasMiddleware
         return view('careers');
     }
 
-    public function careerSubmit(Request $request)
+    public function careersSubmit(Request $request)
     {
         $request->validate(
             [
@@ -37,6 +40,26 @@ class PublicController extends Controller implements HasMiddleware
                 'message' => 'required',
             ]
         );
-        dd($request->all());
+        $user = Auth::user();
+        $role = $request->role;
+        $email = $request->email;
+        $message = $request->message;
+
+        Mail::to("djfedemurru@icloud.com")->send(new CarrerRequestMail(compact('role', 'email', 'message')));
+        switch ($role) {
+            case 'admin':
+                $user->is_admin = NULL;
+                break;
+            case 'revisor':
+                $user->is_revisor = NULL;
+                break;
+            case 'writer':
+                $user->is_writer = NULL;
+                break;
+        }
+
+        $user->update();
+
+        return redirect(route('homepage'))->with('message', 'Thank you for contacting us.');
     }
 }
