@@ -30,10 +30,15 @@
                     <div class="mb-3">
                         <label for="role" class="form-label">Which role are you applying for?</label>
                         <select name="role" id="role" class="form-control">
-                          
+                          @if(!Auth::user()->is_admin)
                             <option value="admin">Admin</option>
+                            @endif
+                            @if(!Auth::user()->is_revisor)
                             <option value="revisor">Revisor</option>
+                            @endif
+                            @if(!Auth::user()->is_writer)
                             <option value="writer">Writer</option>
+                            @endif
                         </select>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
