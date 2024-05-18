@@ -45,7 +45,7 @@ class PublicController extends Controller implements HasMiddleware
         $email = $request->email;
         $message = $request->message;
 
-        Mail::to("djfedemurru@icloud.com")->send(new CarrerRequestMail(compact('role', 'email', 'message')));
+        Mail::to("admin@icloud.com")->send(new CarrerRequestMail(compact('role', 'email', 'message')));
         switch ($role) {
             case 'admin':
                 $user->is_admin = NULL;
@@ -58,7 +58,7 @@ class PublicController extends Controller implements HasMiddleware
                 break;
         }
 
-        $user->update();
+        $user->save();
 
         return redirect(route('homepage'))->with('message', 'Thank you for contacting us.');
     }

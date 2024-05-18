@@ -12,7 +12,11 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="{{route('article.index')}}">Article list</a>
                 </li>
+                <li class="nav-item effect">
+                    <a class="nav-link active" href="{{route('careers')}}"><i class="fa-solid fa-briefcase px-2"></i>Work with us</a>
+                  </li>
             </ul>
+           
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="navbar-nav ms-auto mb-lg-0">
                     @auth
