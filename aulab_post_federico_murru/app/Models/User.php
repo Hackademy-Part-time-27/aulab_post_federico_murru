@@ -23,7 +23,7 @@ class User extends Authenticatable
         'password',
         'is_admin',
         'is_revisor',
-        'is_writer'
+        'is_writer',
     ];
 
     /**
@@ -46,6 +46,9 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean',
+            'is_revisor' => 'boolean',
+            'is_writer' => 'boolean',
         ];
     }
     public function articles()

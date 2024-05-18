@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Mail\CarrerRequestMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Models\User;
+
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
 
@@ -46,19 +48,20 @@ class PublicController extends Controller implements HasMiddleware
         $message = $request->message;
 
         Mail::to("admin@icloud.com")->send(new CarrerRequestMail(compact('role', 'email', 'message')));
+
         switch ($role) {
             case 'admin':
-                $user->is_admin = NULL;
+                $user->is_admin = true;
                 break;
             case 'revisor':
-                $user->is_revisor = NULL;
+                $user->is_revisor = true;
                 break;
             case 'writer':
-                $user->is_writer = NULL;
+                $user->is_writer = true;
                 break;
         }
 
-        $user->update();
+        $user->save();
 
         return redirect(route('homepage'))->with('message', 'Thank you for contacting us.');
     }
