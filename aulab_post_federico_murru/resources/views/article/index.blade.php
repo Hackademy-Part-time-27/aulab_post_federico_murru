@@ -38,5 +38,7 @@
     <div class="text-center">
         <a href="{{route('article.index')}}" class="btn btn-info text-white my-3">back</a>
     </div>
-
+    <br>
+    <br>
+    <br>
 </x-layout>

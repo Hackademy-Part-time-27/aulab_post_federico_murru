@@ -7,14 +7,14 @@
     
     <div class="container my-5">
         <div class="row justify-content-center align-items-center border rounded p-2 shadow">
-            {{-- <div class="col-12 col-md-6">
-                <h2 class="workAdminTitle">LAVORA COME AMMINISTRATORE</h2>
-                <p class="mb-5">Sei interessato a diventare un amministratore? Contattaci!</p>
-                <h2>LAVORA COME REVISORE</h2>
-                <p class="mb-5">Sei interessato nel controllo ed accettazione degli articoli? <br> Questo è il ruolo che fa per te!</p>
-                <h2>LAVORA COME REDATTORE</h2>
-                <p class="mb-5">Sei interessato nel controllare e modificare gli articoli che <br> presentano errori o incongruenze? Diventa un REDATTORE!</p>
-            </div> --}}
+            <div class="col-12 col-md-6">
+                <h2 class="workAdminTitle">WORKS AS AN ADMIN</h2>
+                <p class="mb-5">Are you interested in becoming an admin? Contact us!</p>
+                <h2>WORK AS AN AUDITOR</h2>
+                <p class="mb-5">Are you interested in checking and accepting articles? <br>This is the role for you!</p>
+                <h2>WORKS AS AN EDITOR</h2>
+                <p class="mb-5">You are interested in checking and editing articles that<br>have errors or inconsistencies? Become an EDITOR!</p>
+            </div>
             <div class="col-12 col-md-6">
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -56,6 +56,5 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
+   
 </x-layout>

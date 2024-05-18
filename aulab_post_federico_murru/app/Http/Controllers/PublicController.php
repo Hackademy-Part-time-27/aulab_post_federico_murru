@@ -27,4 +27,16 @@ class PublicController extends Controller implements HasMiddleware
     {
         return view('careers');
     }
+
+    public function careerSubmit(Request $request)
+    {
+        $request->validate(
+            [
+                'role' => 'required',
+                'email' => 'required|email',
+                'message' => 'required',
+            ]
+        );
+        dd($request->all());
+    }
 }
