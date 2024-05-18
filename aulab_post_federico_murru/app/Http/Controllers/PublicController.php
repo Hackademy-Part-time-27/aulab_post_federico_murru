@@ -58,7 +58,7 @@ class PublicController extends Controller implements HasMiddleware
                 break;
         }
 
-        $user->save();
+        $user->update();
 
         return redirect(route('homepage'))->with('message', 'Thank you for contacting us.');
     }
