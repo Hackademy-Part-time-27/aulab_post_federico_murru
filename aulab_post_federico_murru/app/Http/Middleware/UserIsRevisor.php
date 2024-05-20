@@ -16,7 +16,7 @@ class UserIsRevisor
      */
     public function handle(Request $request, Closure $next): Response
     {   
-        if(Auth::user()  && Auth::user () -> is_revisor){
+        if(Auth::user() && Auth::user ()->is_revisor){
         return $next($request);
         }
         return redirect(route('homepage'))->with('alert', 'Access denied');

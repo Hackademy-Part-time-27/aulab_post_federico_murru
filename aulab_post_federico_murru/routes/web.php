@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\RevisorController;
 
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
@@ -23,5 +24,11 @@ Route::middleware('admin')->group(function () {
     Route::patch('/admin/{user}/set-admin', [AdminController::class,'setAdmin'])->name('admin.setAdmin');
     Route::patch('/admin/{user}/set-revisor', [AdminController::class,'setRevisor'])->name('admin.setRevisor');
     Route::patch('/admin/{user}/set-writer', [AdminController::class,'setWriter'])->name('admin.setWriter');
+
+});
+
+Route::middleware('revisor')->group(function () {
+    Route::get('/revisor/dashboard', [RevisorController::class,'dashboard'])->name('revisor.dashboard');
+    Route::post('/revisor/{article}/accept', [RevisorController::class,'acceptArticle'])->name('revisor.acceptArticle');
 
 });
