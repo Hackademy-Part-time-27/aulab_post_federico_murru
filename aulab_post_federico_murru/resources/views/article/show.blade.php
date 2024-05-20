@@ -31,11 +31,11 @@
       @if (Auth::user() && Auth::user()->is_revisor)
       <form action="{{route('revisor.acceptArticle',compact('article'))}}" method="POST">
             @csrf 
-        <button class="btn btn-info text-white">Accept article</button>
+        <button class="btn btn-success text-white">Accept article</button>
       </form>
       <form action="{{route('revisor.rejectArticle',compact('article'))}}" method="POST">
         @csrf 
-            <button class="btn btn-info text-white">Reject article</button>
+            <button class="btn btn-danger text-white">Reject article</button>
         </form>
       @endif  
 
