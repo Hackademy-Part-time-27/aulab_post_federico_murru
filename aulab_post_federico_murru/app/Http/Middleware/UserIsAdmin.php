@@ -19,6 +19,6 @@ class UserIsAdmin
         if (Auth::user() && Auth::user()->is_admin) {
         return $next($request);
     }
-        return redirect(route('homepage'))->with('alert', 'access denied');
+        return redirect(route('homepage'))->with('alert', 'Access denied');
     }
 }
