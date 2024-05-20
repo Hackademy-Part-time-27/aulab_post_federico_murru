@@ -17,7 +17,7 @@ Route::get('/article/category/{category}', [ArticleController::class, 'byCategor
 Route::get('/article/user/{user}', [ArticleController::class, 'byUser'])->name('article.byUser');
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
 Route::post('/careers/submit', [PublicController::class, 'careersSubmit'])->name('career.submit');
-// Route::resource('articles', ArticleController::class);
+
 
 Route::middleware('admin')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class,'dashboard'])->name('admin.dashboard');
@@ -30,5 +30,16 @@ Route::middleware('admin')->group(function () {
 Route::middleware('revisor')->group(function () {
     Route::get('/revisor/dashboard', [RevisorController::class,'dashboard'])->name('revisor.dashboard');
     Route::post('/revisor/{article}/accept', [RevisorController::class,'acceptArticle'])->name('revisor.acceptArticle');
+    Route::post('/revisor/{article}/reject', [RevisorController::class,'rejectArticle'])->name('revisor.rejectArticle');
+    Route::post('/revisor/{article}/undo', [RevisorController::class,'undoArticle'])->name('revisor.undoArticle');
 
+});
+
+Route::middleware('writer')->group(function () {
+    Route::get('/article/create',[ArticleController::class, 'create'])->name('article.create');
+    Route::post('/article/store',[ArticleController::class, 'store'])->name('article.store');
+    Route::get('/writer/dashboard',[WriterController::class, 'dashboard'])->name('writer.dashboard');
+    Route::get('/article/{article}/edit',[ArticleController::class, 'edit'])->name('article.edit');
+    Route::put('/article/{article}/update',[ArticleController::class, 'update'])->name('article.update');
+    Route::delete('/article/{article}/destroy',[ArticleController::class, 'destroy'])->name('article.destroy');
 });

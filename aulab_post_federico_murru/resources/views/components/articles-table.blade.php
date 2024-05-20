@@ -19,7 +19,10 @@
         @if (is_null($article->is_accepted))
           <a href="{{route('article.show', compact('article'))}}" class="btn btn-info text-white">Read the article</a>
         @else
-        <a href="#" class="btn btn-info text-white">Back to review</a>
+        <form action="{{route('revisor.undoArticle', compact('article'))}}" method="post">
+            @csrf 
+            <button class="btn btn-info text-white">Back to review</button>
+        </form>
         @endif
     </td>
     </tr>

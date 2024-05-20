@@ -27,6 +27,19 @@
     <div class="text-center">
         <a href="{{route('article.index')}}" class="btn btn-info text-white my-5">back</a>
     </div>
+    <div class="d-flex justify-content-evenly">
+      @if (Auth::user() && Auth::user()->is_revisor)
+      <form action="{{route('revisor.acceptArticle',compact('article'))}}" method="POST">
+            @csrf 
+        <button class="btn btn-info text-white">Accept article</button>
+      </form>
+      <form action="{{route('revisor.rejectArticle',compact('article'))}}" method="POST">
+        @csrf 
+            <button class="btn btn-info text-white">Reject article</button>
+        </form>
+      @endif  
+
+    </div>
     <br>
     <br>
     <br>

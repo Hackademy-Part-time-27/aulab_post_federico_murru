@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class RevisorController extends Controller
@@ -19,6 +20,23 @@ class RevisorController extends Controller
         $article->is_accepted = true;
         $article->save();
 
-        return redirect(round('revisor.dashboard'))->with('message', 'Article accepted');
+        return redirect(route('revisor.dashboard'))->with('message', 'Article accepted');
+    }
+
+    public function rejectArticle(Article $article){
+
+        $article->is_accepted = false;
+        $article->save();
+
+        return redirect(route('revisor.dashboard'))->with('message', 'Article rejected');
+    }
+
+    public function undoArticle(Article $article){
+
+        $article->is_accepted = NULL;
+        $article->save();
+
+        return redirect(route('revisor.dashboard'))->with('message', 'Article back to review');
     }
 }
+
