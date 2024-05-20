@@ -17,12 +17,17 @@
                   </li>
             </ul>
            
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse mb-2" id="navbarNavAltMarkup">
                 <ul class="navbar-nav ms-auto mb-lg-0">
                     @auth
+                    @if (Auth::user()->is_admin)
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{route('admin.dashboard')}}">Dashboard admin</a>
+                    </li>
+                    @endif
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Welcome {{ auth()->user()->email }}
+                          Welcome {{ auth()->user()->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="#">Action</a></li>

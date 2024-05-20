@@ -9,11 +9,10 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        $adminRequest = User::where('is_admin', NULL)->get();
-        $adminRequest = User::where('is_revisor', NULL)->get();
-        $adminRequest = User::where('is_writer', NULL)->get();
-        return view('admin.dashboard', compact('adminRequest', 'revisorRequest', 'writerRequest'));
-
+        $adminRequests = User::where('is_admin', NULL)->get();
+        $revisorRequests = User::where('is_revisor', NULL)->get();
+        $writerRequests = User::where('is_writer', NULL)->get();
+        return view('admin.dashboard',compact('adminRequests','revisorRequests','writerRequests'));
     }
 
     public function setAdmin(User $user){
@@ -21,5 +20,18 @@ class AdminController extends Controller
         $user->save();
 
         return redirect(route('admin.dashboard'))->with('message', 'user state changed to admin');
+    }
+
+    public function setRevisor(User $user){
+        $user->is_revisor = true;
+        $user->save();
+
+        return redirect(route('admin.dashboard'))->with('message', 'user state changed to revisor');
+    }
+    public function setWriter(User $user){
+        $user->is_writer = true;
+        $user->save();
+
+        return redirect(route('admin.dashboard'))->with('message', 'user state changed to writer');
     }
 }

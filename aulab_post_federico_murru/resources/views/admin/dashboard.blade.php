@@ -23,7 +23,7 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2>request for admin role</h2>
+                <h2>Requests for admin role</h2>
                 <x-request-table :roleRequest="$adminRequests" role="amministratore"/>
             </div>
         </div>
@@ -31,7 +31,7 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h2>application for auditor role</h2>
+                <h2>Applications for editor role</h2>
                 <x-request-table :roleRequest="$revisorRequests" role="revisore"/>
             </div>
         </div>
@@ -39,21 +39,21 @@
         <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <h2>application for editor role</h2>
+                    <h2>Applications for editor role</h2>
                     <x-request-table :roleRequest="$writerRequests" role="redattore"/>
                 </div>
             </div>
         </div>
    
-    <div class="container my-5">
+    {{-- <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2>Platform tags</h2>
                 <x-metainfo-table :metaInfos="$tags" metaType="tags" />
             </div>
         </div>
-    </div>
-    <div class="container my-5">
+    </div> --}}
+    {{-- <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2>Platform Categories</h2>
@@ -65,5 +65,5 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
 </x-layout>

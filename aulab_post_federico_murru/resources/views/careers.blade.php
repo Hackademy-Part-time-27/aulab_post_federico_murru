@@ -34,7 +34,7 @@
                             <option value="admin">Admin</option>
                             @endif
                             @if(!Auth::user()->is_revisor)
-                            <option value="revisor">Revisor</option>
+                            <option value="revisor">Editor</option>
                             @endif
                             @if(!Auth::user()->is_writer)
                             <option value="writer">Writer</option>
