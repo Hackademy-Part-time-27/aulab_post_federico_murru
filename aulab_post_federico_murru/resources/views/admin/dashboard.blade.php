@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="container-fluid p-5 text-center allArticle">
+    <div class="container-fluid p-5 bg-info text-center text-white">
         <div class="row justify-content-center">
             <div class="h1 display-1">
                 Welcome back Admin!
@@ -53,17 +53,17 @@
             </div>
         </div>
     </div>
-    {{-- <div class="container my-5">
+    <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2>Platform Categories</h2>
                 <x-metainfo-table :metaInfos="$categories" metaType="categories" />
                 <form class="d-flex" action="" method="POST">
                     @csrf
-                    <input type="text" name="name" class=" bordoorang form-control me-2" placeholder="inserisci una nuova categoria">
-                    <button type="submit" class="btn btn-orange ">Add</button>
+                    <input type="text" name="name" class=" bordoorang form-control me-2" placeholder="enter a new category">
+                    <button type="submit" class="btn btn-info ">Add</button>
                 </form>
             </div>
         </div>
-    </div> --}}
+    </div>
 </x-layout>

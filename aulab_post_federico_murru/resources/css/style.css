@@ -1,0 +1,8 @@
+/* public/css/styles.css */
+.card {
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    overflow: hidden; 
+}

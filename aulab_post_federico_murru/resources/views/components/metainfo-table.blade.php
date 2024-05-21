@@ -2,10 +2,10 @@
     <thead class="table-dark">
         <tr>
             <th scope="col">#</th >
-            <th scope="col">Nome tag</th>
-            <th scope="col">Q.ta articoli collegati</th >
-            <th scope="col">Aggiorna</th >
-            <th scope="col">Cancella</th >
+            <th scope="col">Tag name</th>
+            <th scope="col">Number of related articles</th >
+            <th scope="col">Update</th >
+            <th scope="col">Delete</th >
         </tr>
     </thead>
     <tbody>
@@ -19,8 +19,8 @@
                     <form action="{{route('admin.editTag' , ['tag'=>$metaInfo])}}" method="POST">
                         @csrf
                         @method('put')
-                        <input type="text" name="name" placeholder="Nuovo nome tag" class="form-control w-50 d-inline">
-                        <button type="submit" class="btn btn-warning text-dark">Aggiorna</button>
+                        <input type="text" name="name" placeholder="New tag name" class="form-control w-50 d-inline">
+                        <button type="submit" class="btn btn-warning text-dark">Update</button>
                     </form>
                 </td>
                 <td>
@@ -28,16 +28,16 @@
                         @csrf
                         @method('delete')
                        
-                        <button type="submit" class="btn btn-danger text-white">Elimina</button>
+                        <button type="submit" class="btn btn-danger text-white">Delete</button>
                     </form>
                 </td>
                 @else
                 <td>
-                    <form action="{{route('admin.editCategory' , ['category' =>$metaInfo])}}" method="POST">
+                    {{-- <form action="{{route('admin.editCategory' , ['category' =>$metaInfo])}}" method="POST">
                         @csrf
                         @method('put')
                         <input type="text" name="name" placeholder="Nuovo nome categoria" class="form-control w-50 d-inline">
-                        <button type="submit" class="btn btn-warning text-dark">Aggiorna</button>
+                        <button type="submit" class="btn btn-warning text-dark">Update</button>
                     </form>
                 </td>
                 <td>
@@ -46,8 +46,8 @@
                    
                         @method('delete')
                        
-                        <button type="submit" class="btn btn-danger text-white">Elimina</button>
-                    </form>
+                        <button type="submit" class="btn btn-danger text-white">Delete</button>
+                    </form> --}}
                 </td>
               
                     

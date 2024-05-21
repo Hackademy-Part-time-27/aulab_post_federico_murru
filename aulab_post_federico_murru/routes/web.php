@@ -22,9 +22,13 @@ Route::get('/article/search', [ArticleController::class, 'articleSearch'])->name
 
 Route::middleware('admin')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class,'dashboard'])->name('admin.dashboard');
+   //Route::post('/admin/dashboard', [AdminController::class,'dashboard'])->name('admin.dashboard');
     Route::patch('/admin/{user}/set-admin', [AdminController::class,'setAdmin'])->name('admin.setAdmin');
     Route::patch('/admin/{user}/set-revisor', [AdminController::class,'setRevisor'])->name('admin.setRevisor');
     Route::patch('/admin/{user}/set-writer', [AdminController::class,'setWriter'])->name('admin.setWriter');
+    Route::put('/admin/edit/tag/{tag}', [AdminController::class,'editTag'])->name('admin.editTag');
+    Route::delete('/admin/delete/tag/{tag}', [AdminController::class,'deleteTag'])->name('admin.deleteTag');
+    Route::post('/admin/category/store', [AdminController::class, 'storeCategory'])->name('admin.storeCategory');
 
 });
 

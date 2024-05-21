@@ -17,9 +17,18 @@
         </div>
         <div class="text-center my-2">
             <h2>{{ $article->subtitle }}</h2>
+            @if ($tags)
+           
+            <p class="small fst-italic text-capitalize">
+                @foreach ($tags as $tag)
+                #{{$tag->name}}            
+                @endforeach
+            </p>
+            @endif
             <div class="my-3 text-muted fst-italic">
                 <p>Created by {{ $article->user->name }} on {{ $article->created_at->format('d/m/Y') }}</p>
             </div>
+            
         </div>
     </div>
     <hr>
