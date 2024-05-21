@@ -30,6 +30,12 @@ class ArticleController extends Controller implements HasMiddleware
         return view('article.index', compact('articles'));
     }
 
+    public function articleSearch(Request $request){
+        $query = $request->input('query');
+        $articles = Article::search($query)->where('is_accepted', true)->orderBy('created_at', 'asc')->get();
+        return view('article.search-index', compact('articles', 'query'));
+    }
+
     public function byCategory(Category $category)
     {
         $articles = $category->articles()->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
