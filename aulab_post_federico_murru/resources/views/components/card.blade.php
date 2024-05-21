@@ -5,6 +5,16 @@
         <p class="card-text text-truncate">{{ $subtitle }}</p>
         <a href="{{ $urlCategory }}" 
         class="small text-muted text-center">{{ $category }}</p>
+
+        @if ($tags)
+           
+        <p class="small fst-italic text-capialize">
+            @foreach ($tags as $tag)
+            #{{$tag->name}}
+               
+            @endforeach
+        </p>
+        @endif
     </div>
     <div class="card-footer text-muted text-center">
         <div class="mb-2">Written by {{ $user }} on {{ $date }}</div>
