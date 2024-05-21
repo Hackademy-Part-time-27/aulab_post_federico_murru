@@ -16,7 +16,7 @@ class ArticleController extends Controller implements HasMiddleware
     public static function middleware()
     {
         return [
-            new Middleware('auth', except: ['index', 'show', 'byCategory', 'byUser']),
+            new Middleware('auth', except: ['index', 'show', 'byCategory', 'byUser', 'articleSearch']),
         ];
     }
 

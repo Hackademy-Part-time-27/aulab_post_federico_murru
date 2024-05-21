@@ -58,6 +58,10 @@
                     </li>
                     @endauth
                 </ul>
+                <form class="d-flex float-end " method="GET" action="{{ route ('article.search')}}">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+                    <button class="btn btn-outline-info " type="submit">Search</button>
+                </form>
             </div>
         </div>
     </div>
