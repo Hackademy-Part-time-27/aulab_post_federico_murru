@@ -1,6 +1,6 @@
-<div class="card">
-    <img src="{{ Storage::url($image) }}" alt="{{ $title }}" class="card-img-top" style="height: 200px; width: 100%; object-fit: cover;">
-    <div class="card-body">
+<div class="card" >
+    <img src="{{ Storage::url($image) }}" alt="{{ $title }}" class="card-img-top" style="height: 300px; width: 100%; object-fit: cover;">
+    <div class="card-body" style="height: 200px;">
         <h5 class="card-title">{{ $title }}</h5>
         <p class="card-text text-truncate">{{ $subtitle }}</p>
         @if ($category)

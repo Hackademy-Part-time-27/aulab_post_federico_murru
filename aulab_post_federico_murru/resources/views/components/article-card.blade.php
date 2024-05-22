@@ -1,5 +1,5 @@
 <div class="box"></div>
-<div class="card card2">
+<div class="card card2" style="height: 670px;">
   <img src="{{ Storage::url($article->image) }}" class="card-img-top imgalt" alt="immagine card">
   <div class="card-body">
     <h6 class="card-title"><strong>{{ $article->title }}</strong></h6>
