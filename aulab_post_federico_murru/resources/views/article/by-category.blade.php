@@ -15,23 +15,23 @@
         {{ session('message') }}
     </div>
     @endif
-<div class="container my-5">
-    <div class="row justify-content-center">
-        @foreach($articles as $article)
-        <div class="col-12 col-md-5 m-3">
-            <x-card
-                :tags="$article->tags",
-                title="{{ $article->title }}"
-                subtitle="{{ $article->subtitle }}"
-                image="{{ $article->image }}"
-                category="{{ $article->category->name }}"
-                date="{{ $article->created_at->format('d/m/y') }}"
-                user="{{ $article->user->name }}"
-                url="{{ route('article.show', ['article' => $article->id]) }}"
-                urlCategory="{{ route('article.byCategory', ['category' => $article->category->id]) }}"
-            />
-        </div>      
-    @endforeach
+
+    <div class="container my-5" style="min-height: 500px;">
+        
+        <div class="row justify-content-center"  >
+            @foreach ($articles as $article)
+               
+            <div class="col-sm-6 my-3">
+              
+             
+                    <x-article-card
+                    :article='$article'
+                />
+                
+            </div>
+            @endforeach
+        </div>
+    </div>
 
     <div class="text-center">
         <a href="{{route('article.index')}}" class="btn btn-info text-white my-3">back</a>
