@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="container-fluid p-5 text-center allArticle">
+    <div class="container-fluid p-5 bg-info text-center text-white">
         <div class="row justify-content-center">
             <div class="h1 display-1">
                 Welcome back revisor!

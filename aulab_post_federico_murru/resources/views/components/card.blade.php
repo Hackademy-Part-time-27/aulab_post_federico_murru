@@ -21,7 +21,7 @@
         @endif
     </div>
     <div class="card-footer text-muted text-center">
-        <div class="mb-2">Written by {{ $user }} on {{ $data }}</div>
+        <div class="mb-2">Written by {{ $user }} on {{ $date }}</div>
         <a href="{{ $url }}" class="btn btn-info text-white">Read more</a>
     </div>
 </div>
