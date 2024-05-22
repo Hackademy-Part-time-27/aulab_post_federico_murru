@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -55,5 +56,29 @@ class AdminController extends Controller
         $tag->delete();
         return redirect()->back()->with('message', 'Tag deleted');
 
+    }
+
+    public function editCategory(Request $request, Category $category){
+        $request->validate([
+            'name'=> 'required|unique:categories',
+        ]);
+        $category->update([
+            'name'=> strtolower($request->name)
+        ]);
+        return redirect()->back()->with('message', 'Category changed');
+    }
+
+    public function deleteCategory(Category $category){
+       
+        $category->delete();
+        return redirect()->back()->with('message', 'Category deleted');
+
+    }
+
+    public function storeCategory(Request $request){
+        Category::create([
+            'name' => strtolower($request->name)
+        ]);
+        return redirect()->back()->with('message', 'Category saved');
     }
 }

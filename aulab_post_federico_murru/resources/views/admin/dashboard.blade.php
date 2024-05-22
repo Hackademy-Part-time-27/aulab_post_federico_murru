@@ -58,7 +58,7 @@
             <div class="col-12">
                 <h2>Platform Categories</h2>
                 <x-metainfo-table :metaInfos="$categories" metaType="categories" />
-                <form class="d-flex" action="" method="POST">
+                <form class="d-flex" action="{{route('admin.storeCategory')}}" method="POST">
                     @csrf
                     <input type="text" name="name" class=" bordoorang form-control me-2" placeholder="enter a new category">
                     <button type="submit" class="btn btn-info ">Add</button>

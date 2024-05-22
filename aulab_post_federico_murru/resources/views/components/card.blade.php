@@ -3,9 +3,14 @@
     <div class="card-body">
         <h5 class="card-title">{{ $title }}</h5>
         <p class="card-text text-truncate">{{ $subtitle }}</p>
-        <a href="{{ $urlCategory }}" 
-        class="small text-muted text-center">{{ $category }}</p> </a>
-
+        @if ($category)
+        <a href="{{$urlCategory}}" class="small text-muted d-flex 
+        justify-content-center align-items-center  my-2">{{$category}}</a>
+        @else
+      <p class="small fst-italic text-capitalize text-center">
+        Uncategorised
+      </p> 
+      @endif
         @if ($tags)
            
         <p class="small fst-italic text-capitalize text-center">
