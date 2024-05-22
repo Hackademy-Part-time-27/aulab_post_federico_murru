@@ -30,6 +30,11 @@
                         <a class="nav-link active" href="{{route('revisor.dashboard')}}">Dashboard revisor</a>
                     </li>
                     @endif
+                    @if (Auth::user()->is_writer)
+                    <li class="nav-item effect">
+                      <a class="nav-link active" href="{{route('writer.dashboard')}}">Dashboard writer</a>
+                    </li>
+                    @endif
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Welcome {{ auth()->user()->name }}
