@@ -2,7 +2,7 @@
     <div class="container-fluid p-5 bg-info text-center text-white">
         <div class="row justify-content-center">
             <div class="h1 display-1 mt-5">
-                All articles ordered by {{$query}}
+                Search "{{$query}}""
             </div>
         </div>
     </div>
