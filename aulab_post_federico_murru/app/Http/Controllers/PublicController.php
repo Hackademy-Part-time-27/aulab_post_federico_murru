@@ -51,13 +51,13 @@ class PublicController extends Controller implements HasMiddleware
 
         switch ($role) {
             case 'admin':
-                $user->is_admin = true;
+                $user->is_admin = NULL;
                 break;
             case 'revisor':
-                $user->is_revisor = true;
+                $user->is_revisor = NULL;
                 break;
             case 'writer':
-                $user->is_writer = true;
+                $user->is_writer = NULL;
                 break;
         }
 

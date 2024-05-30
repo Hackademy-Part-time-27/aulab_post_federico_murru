@@ -30,6 +30,9 @@ Route::middleware('admin')->group(function () {
     Route::put('/admin/edit/{category}/category', [AdminController::class, 'editCategory'])->name('admin.editCategory');
     Route::delete('/admin/delete/{category}/category', [AdminController::class,'deleteCategory'])->name('admin.deleteCategory');
     Route::post('/admin/category/store', [AdminController::class, 'storeCategory'])->name('admin.storeCategory');
+    Route::patch('/admin/rejectAdmin/{user}', [AdminController::class, 'rejectAdmin'])->name('admin.rejectAdmin');
+    Route::patch('/admin/rejectRevisor/{user}', [AdminController::class, 'rejectRevisor'])->name('admin.rejectRevisor');
+    Route::patch('/admin/rejectWriter/{user}', [AdminController::class, 'rejectWriter'])->name('admin.rejectWriter');
 
 });
 

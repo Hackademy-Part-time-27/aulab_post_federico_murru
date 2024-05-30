@@ -21,20 +21,20 @@ class AdminController extends Controller
         $user->is_admin = true;
         $user->save();
 
-        return redirect(route('admin.dashboard'))->with('message', 'user state changed to admin');
+        return redirect(route('admin.dashboard'))->with('message', 'User state changed to admin');
     }
 
     public function setRevisor(User $user){
         $user->is_revisor = true;
         $user->save();
 
-        return redirect(route('admin.dashboard'))->with('message', 'user state changed to revisor');
+        return redirect(route('admin.dashboard'))->with('message', 'User state changed to revisor');
     }
     public function setWriter(User $user){
         $user->is_writer = true;
         $user->save();
 
-        return redirect(route('admin.dashboard'))->with('message', 'user state changed to writer');
+        return redirect(route('admin.dashboard'))->with('message', 'User state changed to writer');
     }
 
     public function editTag(Request $request, Tag $tag){
@@ -81,4 +81,42 @@ class AdminController extends Controller
         ]);
         return redirect()->back()->with('message', 'Category saved');
     }
+
+    public function rejectAdmin(User $user) {
+        $user->is_admin = false;
+        $user->save();
+    
+        $adminRequests = collect(session('adminRequests'))->reject(function ($requestUser) use ($user) {
+            return $requestUser->id === $user->id;
+        });
+        session(['adminRequests' => $adminRequests->values()->all()]);
+    
+        return redirect(route('admin.dashboard'))->with('message', 'Admin request rejected successfully.');
+    }
+    
+    public function rejectRevisor(User $user) {
+        $user->is_revisor = false;
+        $user->save();
+    
+        $revisorRequests = collect(session('revisorRequests'))->reject(function ($requestUser) use ($user) {
+            return $requestUser->id === $user->id;
+        });
+        session(['revisorRequests' => $revisorRequests->values()->all()]);
+    
+        return redirect(route('admin.dashboard'))->with('message', 'Revisor request rejected successfully.');
+    }
+    
+    
+    public function rejectWriter(User $user) {
+        $user->is_writer = false;
+        $user->save();
+    
+        $writerRequests = collect(session('writerRequests'))->reject(function ($requestUser) use ($user) {
+            return $requestUser->id === $user->id;
+        });
+        session(['writerRequests' => $writerRequests->values()->all()]);
+    
+        return redirect(route('admin.dashboard'))->with('message', 'Writer request rejected successfully.');
+    }
+    
 }
